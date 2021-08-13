@@ -1,0 +1,10 @@
+# DEVELOPER
+
+    Sinan Yildiz
+    Front-end Developer
+    https://github.com/sinan4yildiz
+
+
+# TECHNOLOGY
+
+    HTML5, Javascript (ES6+), CSS3 (SASS), Gulp, Git
