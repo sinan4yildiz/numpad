@@ -16,8 +16,17 @@ ul, ol {
   list-style: none;
 }
 
+button {
+  user-select: none;
+}
+
 header {
   padding: 1rem 0;
+
+  @media (max-width: 575px) {
+    background: #333333;
+    color: #FFFFFF;
+  }
 
   h1 {
     font-size: 1.125rem;
@@ -34,44 +43,152 @@ main {
   margin: 0 auto;
   border-top: 5px solid #D8D8D8;
 
+  @media (max-width: 575px) {
+    background: #FFFFFF;
+  }
+
   > section {
     display: flex;
+    flex-direction: row;
 
+    @media (max-width: 575px) {
+      flex-direction: column;
+    }
+
+    /***
+        Numpad styles
+    */
     > article {
       flex-grow: 1;
+
+      @media (max-width: 575px) {
+        padding: 0 1rem;
+      }
 
       > ol {
         display: grid;
         grid-gap: 0;
-        grid-template-columns: auto auto auto;
+
+        @media (min-width: 576px) {
+          grid-template-columns: auto auto auto;
+          min-height: 40rem;
+        }
 
         li {
-          aspect-ratio: 1;
-          position: relative;
+          @media (min-width: 576px) {
+            aspect-ratio: 1;
+          }
+
+          @media (max-width: 575px) {
+            margin-bottom: .375rem;
+          }
 
           button {
+            position: relative;
             display: block;
             width: 100%;
-            height: 100%;
             text-align: center;
-            font-size: 3rem;
             border: none;
             cursor: pointer;
             padding: 0;
             margin: 0;
+            color: #FFFFFF;
+
+            &:hover {
+              opacity: 0.8;
+            }
+
+            @media (min-width: 576px) {
+              height: 100%;
+              font-size: 3rem;
+
+              &[data-value="1"],
+              &[data-value="8"] {
+                background: #6F98A8;
+              }
+
+              &[data-value="2"],
+              &[data-value="4"] {
+                background: #2B8EAD;
+              }
+
+              &[data-value="3"],
+              &[data-value="5"],
+              &[data-value="9"] {
+                background: #2F454E;
+              }
+
+              &[data-value="6"],
+              &[data-value="7"] {
+                background: #BFBFBF;
+              }
+            }
+
+            @media (max-width: 575px) {
+              font-size: 1.125rem;
+              background: #EFEFEF;
+              color: #333333;
+              padding: .5rem 0;
+
+              &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: .5rem;
+              }
+
+              &[data-value="1"]:before,
+              &[data-value="8"]:before {
+                background: #6F98A8;
+              }
+
+              &[data-value="2"]:before,
+              &[data-value="4"]:before {
+                background: #2B8EAD;
+              }
+
+              &[data-value="3"]:before,
+              &[data-value="5"]:before,
+              &[data-value="9"]:before {
+                background: #2F454E;
+              }
+
+              &[data-value="6"]:before,
+              &[data-value="7"]:before {
+                background: #BFBFBF;
+              }
+            }
           }
         }
       }
     }
 
+    /***
+        Actions styles
+    */
     > ul {
       width: 12rem;
       text-align: center;
       padding: 2rem;
 
+      @media (max-width: 575px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0;
+      }
+
       li {
         display: block;
         margin-bottom: 1.5rem;
+
+        @media (max-width: 575px) {
+          margin: 0 .5rem .5rem .5rem;
+        }
 
         button {
           display: block;
@@ -99,12 +216,7 @@ main {
         }
       }
 
-      // Mobile
-      @media (max-width: 375px) {
-      }
-
-      // Desktop
-      @media (min-width: 376px) {
+      @media (min-width: 576px) {
         order: 2;
       }
     }
