@@ -23,7 +23,7 @@
             * */
             const ol = document.createElement('ol');
 
-            for (var i = 1; i <= 9; i++) {
+            for (let i = 1; i <= 9; i++) {
 
                 /*
                 * Create child elements
@@ -53,7 +53,7 @@
             *
             * */
             if(shuffle) {
-                for (var c = ol.children.length; c >= 0; c--) {
+                for (let c = ol.children.length; c >= 0; c--) {
                     ol.appendChild(ol.children[Math.random() * c | 0]);
                 }
             }
