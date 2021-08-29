@@ -53,7 +53,9 @@
             *
             * */
             if(shuffle) {
-                for (let c = ol.children.length; c >= 0; c--) {
+                let c = ol.children.length;
+
+                for (c; c >= 0; c--) {
                     ol.appendChild(ol.children[Math.random() * c | 0]);
                 }
             }
